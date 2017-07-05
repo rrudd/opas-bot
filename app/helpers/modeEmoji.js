@@ -1,13 +1,13 @@
-const Emoji = require('node-emoji').emoji;
+const emoji = require('node-emoji').emoji;
 
 const modeEmoji = (mode) => {
   const modes = {
-    'BUS': Emoji.bus,
-    'WALK': Emoji.walking,
-    'TRAM': Emoji.tram,
-    'RAIL': Emoji.train2,
-    'SUBWAY': Emoji.metro,
-    'FERRY': Emoji.ferry,
+    'BUS': emoji.bus,
+    'WALK': emoji.walking,
+    'TRAM': emoji.tram,
+    'RAIL': emoji.train2,
+    'SUBWAY': emoji.metro,
+    'FERRY': emoji.ferry,
   };
 
   return (mode in modes) ? modes[mode] : 'Travel';

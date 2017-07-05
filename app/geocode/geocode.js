@@ -1,8 +1,7 @@
 const rp = require('request-promise');
-
 const config = require('../../config');
 
-const geocode = (searchString, type) => {
+const geocode = (searchString) => {
 
   const options = {
     uri: config.geocodingEndpoint,
@@ -21,7 +20,6 @@ const geocode = (searchString, type) => {
     .then(results => {
       const feature = results.features[0]
       return {
-        type,
         name: feature.properties.name,
         coordinates: {
           lat: feature.geometry.coordinates[1],
