@@ -17,7 +17,7 @@ async function itinerary(msg) {
       const routingResponse = await graphQLRequest(config.routingEndpoint, itineraryQuery(places));
       return itineraryMessage(routingResponse.plan.itineraries[0], places);
     } else {
-      return `At least one of those places could not be found. Please try with a different origin or destination.`;
+      return `Geocoding failed. Please try again with a different origin or destination.`;
     }
   } else {
     return `Your message should be in the format "${config.cmds.route} origin - destination".`;

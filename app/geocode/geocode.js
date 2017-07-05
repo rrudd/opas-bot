@@ -18,7 +18,7 @@ const geocode = (searchString) => {
 
   return rp(options)
     .then(results => {
-      if (results.features.length > 0) {
+      try{
         const feature = results.features[0]
         return {
           name: feature.properties.name,
@@ -27,8 +27,9 @@ const geocode = (searchString) => {
             lon: feature.geometry.coordinates[0],
           }
         }
+      } catch(e) {
+        return;
       }
-      else return undefined;
     }).catch(err => {
       console.log(err);
     });
