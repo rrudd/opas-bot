@@ -19,6 +19,7 @@ const itineraryQuery = (places, time) => {
           mode
           startTime
           endTime
+          duration
           from {
             name
             stop {
