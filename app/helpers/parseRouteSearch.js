@@ -1,8 +1,8 @@
 const parseRouteSearch = (msg) => {
   let message = msg.trim();
-  let time = '';
-  let from = '';
-  let to = ''
+  let time;
+  let from;
+  let to;
 
   if (message.includes(':')) {
     time = message.split(' ')[0];

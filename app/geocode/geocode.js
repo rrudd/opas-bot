@@ -18,14 +18,17 @@ const geocode = (searchString) => {
 
   return rp(options)
     .then(results => {
-      const feature = results.features[0]
-      return {
-        name: feature.properties.name,
-        coordinates: {
-          lat: feature.geometry.coordinates[1],
-          lon: feature.geometry.coordinates[0],
+      if (results.features.length > 0) {
+        const feature = results.features[0]
+        return {
+          name: feature.properties.name,
+          coordinates: {
+            lat: feature.geometry.coordinates[1],
+            lon: feature.geometry.coordinates[0],
+          }
         }
       }
+      else return undefined;
     }).catch(err => {
       console.log(err);
     });
