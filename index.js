@@ -20,10 +20,14 @@ bot.onText(new RegExp(cmds.route), function (msg, match) {
 
   if (routeParams.from != '' && routeParams.to != '') {
     Promise.all([geocode(routeParams.from, 'from'), geocode(routeParams.to, 'to')])
-      .then(places => {
+      .then(results => {
+        const places = {
+          from: results.find(x => x.type === 'from'),
+          to: results.find(x => x.type === 'to'),
+        };
         GraphQLRequest(config.routingEndpoint, itineraryQuery(places)).then(data => {
-          outMessage = itineraryMessage(data.plan.itineraries[0]);
-          bot.sendMessage(msg.from.id, outMessage);
+          outMessage = itineraryMessage(data.plan.itineraries[0], places);
+          bot.sendMessage(msg.from.id, outMessage, {parse_mode: 'Markdown'});
         });
       });
   }

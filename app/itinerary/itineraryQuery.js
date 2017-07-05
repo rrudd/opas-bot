@@ -1,13 +1,11 @@
 const itineraryQuery = (places, time) => {
-  const fromPlace = places.find(x => x.type === 'from');
-  const toPlace = places.find(x => x.type === 'to');
 
   return `{
     plan(
-      fromPlace: "${fromPlace.name}"
-      from: {lat: ${fromPlace.coordinates.lat}, lon: ${fromPlace.coordinates.lon}}
-      toPlace: "${toPlace.name}"
-      to: {lat: ${toPlace.coordinates.lat}, lon: ${toPlace.coordinates.lon}}
+      fromPlace: "${places.from.name}"
+      from: {lat: ${places.from.coordinates.lat}, lon: ${places.from.coordinates.lon}}
+      toPlace: "${places.to.name}"
+      to: {lat: ${places.to.coordinates.lat}, lon: ${places.to.coordinates.lon}}
       modes: "BUS,TRAM,RAIL,SUBWAY,FERRY,WALK"
       walkReluctance: 2.1
       walkBoardCost: 600
