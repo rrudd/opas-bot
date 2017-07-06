@@ -7,6 +7,5 @@ Assuming you have set up node.js and [yarn](https://yarnpkg.com/lang/en/docs/ins
 
 1. Run `yarn install`
 2. [Set up your own Telegram bot](https://core.telegram.org/bots#6-botfather)
-3. Rename `configTemplate.js` to `config.js` (`mv configTemplate.js config.js`)
-4. Replace the placeholder in `config.js` with your bot token
-5. Run `yarn start`
+4. Add your telegram bot token as `OPAS_BOT_TOKEN` to your environment variables or as a value to the key `token` in `config.js`.
+5. Run `yarn start` / `yarn dev`
