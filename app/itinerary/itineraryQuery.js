@@ -1,5 +1,6 @@
-const itineraryQuery = (places, time) => {
+const moment = require('moment');
 
+const itineraryQuery = (places, time) => {
   return `{
     plan(
       fromPlace: "${places.from.name}"
@@ -11,6 +12,8 @@ const itineraryQuery = (places, time) => {
       walkBoardCost: 600
       minTransferTime: 180
       walkSpeed: 1.2
+      time: "${time}"
+      date: "${moment().format('YYYY-MM-DD')}"
     ) {
       itineraries{
         walkDistance

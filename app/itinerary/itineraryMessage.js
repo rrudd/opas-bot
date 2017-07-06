@@ -5,7 +5,7 @@ const durationText = (seconds) => moment.duration(seconds, 'seconds').humanize()
 
 const itineraryMessage = (itinerary, places) => {
   let message = `*${places.from.name} - ${places.to.name} (${durationText(itinerary.duration)})*\n`;
-
+  
   itinerary.legs.forEach((leg, index) => {
     const isFirstLeg = (index === 0);
     const isLastLeg = (index === itinerary.legs.length - 1);
